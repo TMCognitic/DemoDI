@@ -1,0 +1,8 @@
+﻿@using DemoDI
+@using DemoDI.Models
+
+@inject DemoDI.Models.Services.Singleton singleton
+@inject DemoDI.Models.Services.Scoped scoped
+@inject DemoDI.Models.Services.Transient transient
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

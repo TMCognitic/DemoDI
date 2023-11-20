@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@*
+    ViewBag.SingetonByInjection = _singleton.GetHashCode();
+    ViewBag.ScopedByInjection = _scoped.GetHashCode();
+    ViewBag.TransientByInjection = _transient.GetHashCode();
+
+    Singleton singleton = HttpContext.RequestServices.GetService<Singleton>()!;
+    Scoped scoped = HttpContext.RequestServices.GetService<Scoped>()!;
+    Transient transient = HttpContext.RequestServices.GetService<Transient>()!;
+
+    ViewBag.SingetonByCall = singleton.GetHashCode();
+    ViewBag.ScopedByCall = scoped.GetHashCode();
+    ViewBag.TransientByCall = transient.GetHashCode();
+*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>By Injection</th>
+            <th>By Call</th>
+            <th>In View</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Singleton</td>
+            <td>@ViewBag.SingetonByInjection</td>
+            <td>@ViewBag.SingetonByCall</td>
+            <td>@singleton.GetHashCode()</td>
+        </tr>
+        <tr>
+            <td>Scoped</td>
+            <td>@ViewBag.ScopedByInjection</td>
+            <td>@ViewBag.ScopedByCall</td>
+            <td>@scoped.GetHashCode()</td>
+        </tr>
+        <tr>
+            <td>Transient</td>
+            <td>@ViewBag.TransientByInjection</td>
+            <td>@ViewBag.TransientByCall</td>
+            <td>@transient.GetHashCode()</td>
+        </tr>
+    </tbody>
+</table>
